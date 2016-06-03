@@ -1,7 +1,7 @@
 <?php
 require_once("Lib/autoload.php");
 
-use \Controller\MainController;
+use \Util\StateManager;
 
-$app = new MainController();
-$app->run();
+$app = new StateManager();
+$app->switchState($argv); 

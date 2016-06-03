@@ -3,8 +3,10 @@ namespace Controller;
 
 use \Util\View;
 
-class MainController
+class MainController implements IController
 {
+	protected $controller;
+
 	public function __construct()
 	{
 		$this->view = new View();

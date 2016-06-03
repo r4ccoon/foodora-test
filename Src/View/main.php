@@ -1,5 +1,6 @@
-Please type in the number to do the options below:
-1. List vendors
-2. Show a vendor's opening hours
+Parameters:
+ls						List vendors
+show <vendor_id>		Show a vendor schedule
 
-Your choice is:
+example:
+show 1	-> will list schedule of vendor with an id 1

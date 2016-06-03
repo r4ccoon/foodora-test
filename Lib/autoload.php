@@ -1,7 +1,8 @@
 <?php
 function autoload($className)
 {
-	$className = ltrim($className, '\\');
+	$prefix = "Src\\";
+	$className = ltrim($prefix . $className, '\\');
 	$fileName = '';
 	$namespace = '';
 	if ($lastNsPos = strrpos($className, '\\')) {
