@@ -1,7 +1,7 @@
 <?php
 require_once("Lib/autoload.php");
 
-use \Util\StateManager;
+use App\Util\StateManager;
 
 $app = new StateManager();
-$app->switchState($argv); 
+$app->switchState($argv);

@@ -1,9 +1,14 @@
 <?php
-namespace Controller;
+namespace App\Controller;
 
-use \Util\View;
-use \Model\Vendor;
+use App\Util\View;
+use App\Model\Vendor;
 
+/**
+ * Class ListController
+ * List all vendors
+ * @package Controller
+ */
 class ListController implements IController
 {
 	protected $controller;
@@ -15,9 +20,14 @@ class ListController implements IController
 		$this->view = new View();
 	}
 
-	public function run()
+	public function run($params)
 	{
-		$schedules = $this->model->getAllVendors();
-		$this->view->show('vendor', ['schedule' => $schedules]);
+		$this->listVendors();
+	}
+
+	private function listVendors()
+	{
+		$vendors = $this->model->getAll();
+		$this->view->show('vendor', ['vendors' => $vendors]);
 	}
 }

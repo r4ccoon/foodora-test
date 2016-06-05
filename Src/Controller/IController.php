@@ -1,7 +1,11 @@
 <?php
-namespace Controller;
+namespace App\Controller;
 
 interface IController
 {
-	public function run();
+	/**
+	 * @return mixed
+	 * will be called by StateManager when we switch app state.
+	 */
+	public function run($params);
 }

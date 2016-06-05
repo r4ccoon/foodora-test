@@ -1,6 +1,14 @@
 <?php
-namespace Util;
+namespace App\Util;
 
+/**
+ * Class StateManager
+ * Manage application state,
+ * Read args from cli command, and
+ * route them based on the args
+ * to the intended controller
+ * @package Util
+ */
 class StateManager
 {
 	/**
@@ -20,14 +28,14 @@ class StateManager
 		if (isset($argv) && count($argv) > 1) {
 			switch ($argv[1]) {
 				case "ls":
-					$this->controller = "\Controller\ListController";
+					$this->controller = "App\Controller\ListController";
 					break;
 				case "show":
-					$this->controller = "\Controller\ShowController";
+					$this->controller = "App\Controller\ShowController";
 					break;
 			}
 		} else {
-			$this->controller = "\Controller\MainController";
+			$this->controller = "App\Controller\MainController";
 		}
 
 		$this->runState($argv);

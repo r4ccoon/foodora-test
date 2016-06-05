@@ -1,8 +1,8 @@
 <?php
-namespace Controller;
+namespace App\Controller;
 
-use \Util\View;
-use \Model\Vendor;
+use App\Util\View;
+use App\Model\Vendor;
 
 class ShowController implements IController
 {
@@ -15,9 +15,15 @@ class ShowController implements IController
 		$this->view = new View();
 	}
 
-	public function run()
+	public function run($params)
 	{
-		$schedules = $this->model->getAllSchedule('bos');
-		$this->view->show('vendor', ['schedule' => $schedules]);
+		if (isset($params[2])) {
+			$vendor_id = intval($params[2]);
+
+			$schedules = $this->model->getAllBy(['vendor_id' => $vendor_id]);
+			$this->view->show('vendor', ['schedule' => $schedules]);
+		} else {
+			echo "Please put in a correct vendor id";
+		}
 	}
 }

@@ -1,10 +1,10 @@
 <?php
 namespace App\Model;
 
-class Vendor extends Model
+class Schedule extends Model
 {
 	public function __construct()
 	{
-		$this->table = "vendor";
+		$this->table = "vendor_schedule";
 	}
-}
+} 

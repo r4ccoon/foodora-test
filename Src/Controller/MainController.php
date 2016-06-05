@@ -1,7 +1,7 @@
 <?php
-namespace Controller;
+namespace App\Controller;
 
-use \Util\View;
+use App\Util\View;
 
 class MainController implements IController
 {
@@ -12,7 +12,7 @@ class MainController implements IController
 		$this->view = new View();
 	}
 
-	public function run()
+	public function run($params)
 	{
 		$this->view->show('main');
 	}
