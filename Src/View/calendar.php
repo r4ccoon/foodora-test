@@ -1,20 +1,22 @@
-Shop: {{shop_name}}
-========
-December
-========
+<?php
+if (isset($params['vendor']) && isset($params['vendor'][0]) && $params['schedules']) :
+	$v = $params['vendor'][0];
+	$schedules = $params['schedules'];
+	?>
+	Shop: <?= $v['name'] ?>
 
 <?php
-for ($i = 0; $i < $dates; $i++) {
-	$date = $dates[$i];
-	?>
-	DATE: <?php echo $date["day"]; ?>
-	OPEN: <?php echo $date["day"]; ?>
-	CLOSE: <?php echo $date["day"]; ?>
-	<?php ($date["special"]) ? "SPECIAL DAY\n" : "\n"; ?>
-	<?php
-}
-/*|--01--|--02--|--03--|--04--|--05--|--06--|--07--|
-|--08--|--09--|--10--|--11--|--12--|--13--|--14--|
-|--15--|--16--|--17--|--18--|--19--|--20--|--21--|
-|--22--|--23--|--24--|--25--|--26--|--27--|--28--|
-|--29--|--30--|--31--|*/
+	foreach ($schedules as $day => $dates) : ?>
+		<?= $day . ":"; ?>
+
+<?php
+		foreach ($dates as $date) :?>
+<?php 		if($date['all_day'] != 1):?>
+			Start: <?=$date['start_hour']?>
+			Stop: <?=$date['stop_hour']?>
+			<?php else:?>
+			Open All Day
+<?php 		endif;?><?= "\n"; ?>
+<?php 	endforeach;
+	endforeach;
+endif; ?>

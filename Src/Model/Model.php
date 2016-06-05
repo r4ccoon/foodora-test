@@ -29,7 +29,11 @@ class Model
 	protected function createWhere($params)
 	{
 		if (is_array($params) && count($params) > 0) {
-			return sprintf("where %s", implode("and", $params));
+			$where = array();
+			foreach ($params as $key => $val) {
+				$where[] = sprintf("%s = '%s'", $key, $val);
+			}
+			return sprintf("where %s", implode("and", $where));
 		} else
 			return "";
 	}
