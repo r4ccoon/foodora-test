@@ -2,21 +2,21 @@
 namespace App\Controller;
 
 use App\Util\View;
-use App\Model\FixUp;
+use App\Model\FixDown;
 
 /**
- * Class FixUpController
- * update all regular days with special days
+ * Class FixDownController
+ * restore everything again to the normal state
  * @package Controller
  */
-class FixUpController implements IController
+class FixDownController implements IController
 {
 	protected $controller;
 	protected $model;
 
 	public function __construct()
 	{
-		$this->model = new FixUp();
+		$this->model = new FixDown();
 	}
 
 	public function run($params)
@@ -26,8 +26,8 @@ class FixUpController implements IController
 
 	private function fix()
 	{
-		echo "Running the Fix\n";
+		echo "Running the revert\n";
 		$this->model->runFix();
-		echo "Finished the Fix";
+		echo "Finished the revert";
 	}
 }
