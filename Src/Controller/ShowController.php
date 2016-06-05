@@ -20,13 +20,14 @@ class ShowController implements IController
 
 	public function run($params)
 	{
+		// params[2] -> vendor id, params[1] -> show command
 		if (isset($params[2])) {
 			$vendor_id = intval($params[2]);
 
 			$schedules = $this->model->getAllBy(['vendor_id' => $vendor_id]);
 
+			// group the schedules based on days into dictoionary
 			$sched_dict = array();
-			// group the schedules based on days
 			for ($i = 0; $i < count($schedules); $i++) {
 				$date = $schedules[$i];
 				$dayname = Config::$weekdays[$date['weekday'] - 1];

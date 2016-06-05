@@ -14,6 +14,12 @@ class MySqlWrapper
 
 	private static $instance;
 
+	/**
+	 * Use this to run a select query, because
+	 * it will compile them into an array of assoc array.
+	 * @param $sql
+	 * @return array
+	 */
 	public static function select($sql)
 	{
 		$result = self::getInstance()->mysqli_instance->query($sql);
@@ -28,6 +34,17 @@ class MySqlWrapper
 		} else {
 			return [];
 		}
+	}
+
+	/**
+	 * Run whatever query that is passed on the parameter
+	 * @param $sql
+	 * @return array
+	 */
+	public static function execute($sql)
+	{
+		$result = self::getInstance()->mysqli_instance->query($sql);
+		return $result;
 	}
 
 	private static function getInstance()
