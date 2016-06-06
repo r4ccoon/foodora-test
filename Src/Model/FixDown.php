@@ -3,6 +3,12 @@ namespace App\Model;
 
 use App\Util\MySqlWrapper as db;
 
+/**
+ * Class FixDown
+ * 1. copy old value in temp column to original column
+ * 2. drop temp column
+ * @package App\Model
+ */
 class FixDown extends Model
 {
 	public function __construct()

@@ -4,6 +4,13 @@ namespace App\Model;
 use App\Util\MySqlWrapper as db;
 use App\Config\Config;
 
+/**
+ * Class FixUp
+ * 1. create temp column
+ * 2. fill in temp column with original values
+ * 3. overwrite original value with data from special_day table
+ * @package App\Model
+ */
 class FixUp extends Model
 {
 	public function __construct()
