@@ -34,9 +34,11 @@ class StateManager
 					$this->controller = "App\Controller\ShowController";
 					break;
 				case "fix":
+				case "fixup":
 					$this->controller = "App\Controller\FixUpController";
 					break;
 				case "revert":
+				case "fixdown":
 					$this->controller = "App\Controller\FixDownController";
 					break;
 				default:
