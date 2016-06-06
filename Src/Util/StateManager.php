@@ -39,6 +39,9 @@ class StateManager
 				case "revert":
 					$this->controller = "App\Controller\FixDownController";
 					break;
+				default:
+					$this->controller = "App\Controller\MainController";
+					break;
 			}
 		} else {
 			$this->controller = "App\Controller\MainController";

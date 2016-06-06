@@ -30,6 +30,9 @@ class ShowController implements IController
 			$sched_dict = array();
 			for ($i = 0; $i < count($schedules); $i++) {
 				$date = $schedules[$i];
+				if ($date['weekday'] == 0)
+					continue;
+				
 				$dayname = Config::$weekdays[$date['weekday'] - 1];
 				$sched_dict[$dayname][] = $date;
 			}

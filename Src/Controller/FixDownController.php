@@ -28,6 +28,6 @@ class FixDownController implements IController
 	{
 		echo "Running the revert\n";
 		$this->model->runFix();
-		echo "Finished the revert";
+		echo "Finished the revert\n";
 	}
 }

@@ -28,6 +28,6 @@ class FixUpController implements IController
 	{
 		echo "Running the Fix\n";
 		$this->model->runFix();
-		echo "Finished the Fix";
+		echo "Finished the Fix\n";
 	}
 }
